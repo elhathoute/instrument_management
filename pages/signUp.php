@@ -112,17 +112,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                         </div>
                                         <div class="col-md-12 mb-4">
                                             <div class="form-outline">
-                                                <input type="text" id="email" name="email" class="form-control form-control-lg" placeholder="email" required />
+                                                <input type="text" id="email" name="email" class="form-control form-control-lg border border-danger" placeholder="email" required />
                                             </div>
                                         </div>
                                         <div class="col-md-6 mb-4">
                                             <div class="form-outline">
-                                                <input type="password" id="password" name="password" class="form-control form-control-lg" minlength="3" title="password doit contenir aux moin 3 character" placeholder="password" required />
+                                                <input type="password" id="password" name="password" class="form-control form-control-lg border border-danger" minlength="3" title="password doit contenir aux moin 3 character" placeholder="password" required />
                                             </div>
                                         </div>
                                         <div class="col-md-6 mb-4">
                                             <div class="form-outline">
-                                                <input type="password" id="passwordConfirm" name="passwordConfirm" class="form-control form-control-lg" minlength="3" title="password doit contenir aux moin 3 character" placeholder="Confirmer password" required />
+                                                <input type="password" id="passwordConfirm" name="passwordConfirm" class="form-control form-control-lg border border-danger" minlength="3" title="password doit contenir aux moin 3 character" placeholder="Confirmer password" required />
                                             </div>
                                         </div>
                                         <div class="col-md-12 mb-4">

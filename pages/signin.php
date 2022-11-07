@@ -34,19 +34,19 @@ if($requet->rowCount()>0){
                     <div class="m-5 text-center">
                      <h1>Welcome!</h1>
                       <form method="POST" class="m-5">
-                        <div class="mb-3 text-start">
+                        <div class="mb-3 text-start ">
                             <label class="form-label" for="email">Email</label>
-                            <input class="form-control" type="text" id="email" name="email">
+                            <input class="form-control border border-danger" type="text" id="email" name="email">
                         </div>
                         <div class="mb-3 text-start">
                             <label class="form-label" for="password">Password</label>
-                            <input class="form-control" type="password" id="password" name="password">
+                            <input class="form-control border border-danger" type="password" id="password" name="password">
                         </div>
                         <div class="row mb-3">
                            <div class="col-auto ">
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" id="rememberme-me">
-                                <label class="form-check-label" for="rememberme-me">Remember Me</label>
+                                <label class="form-check-label " for="rememberme-me">Remember Me</label>
                             </div>
                            </div> 
                            <div class="col-auto ">
