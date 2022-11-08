@@ -11,7 +11,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];
     $password = $_POST['password'];
     $passwordConfirm = $_POST['passwordConfirm'];
-    $role_id =2; //type user pas admin
+    $role_id =2; //type user default
+    $etat =0; //  user desactiver  par default
     $arrayOfErrors = array();  //crer une table des error
     //verifier nom
     if (isset($nom)) {        //la variable $nom est exist
@@ -46,8 +47,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if(empty($arrayOfErrors)){
         // verifier email exist deja ou non
         if(chercherParEmail($email)==0){
-            $requet =$pdo ->prepare("INSERT INTO users(nom,prenom,ville,email,password,photo,role_id) VALUES(?,?,?,?,?,?,?) ");
-            $requet->execute(array($nom,$prenom,$ville,$email,$password,$photo,$role_id));
+            $requet =$pdo ->prepare("INSERT INTO users(nom,prenom,ville,email,password,photo,etat,role_id) VALUES(?,?,?,?,?,?,?,?) ");
+            $requet->execute(array($nom,$prenom,$ville,$email,$password,$photo,$etat,$role_id));
             //crer var de success 
             $successMessage='felicitation votre compte est cree !';
             echo $successMessage;
@@ -80,11 +81,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <div class="col-md-8 ">
                             <div class="m-5 text-center">
                                 <h1>Create Account!</h1>
-                                <?php
-                                  if(empty($arrayOfErrors)){
-                                   echo '<div  class="alert alert-success col-md-12 mb-4">'. $successMessage . '</div>';
-                                  }
-                                ?>
                                 <form method="POST" class="m-5">
                                     <div class="row">
                                         <div class="col-md-6 mb-4">

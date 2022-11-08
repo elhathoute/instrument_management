@@ -1,18 +1,14 @@
 <?php
-require_once('../database/connexion.php');
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-$email = $_POST['email'];
-$password = $_POST['password'];
-$requet=$pdo->prepare("SELECT * FROM users where email=? and password=?");
-$requet->execute(array($email,$password));
-if($requet->rowCount()>0){
-  header('location:../index.php');
+session_start();
+//si il ya une error soit comte desactiver soit compte n'existe pas
+if(isset($_SESSION['error-login']))
+{
+  // recuperer cette error dans une var
+  $error_login = $_SESSION['error-login'];
 }else{
-  header('location:signin.php');
+  $error_login = '';
 }
-
-
-}
+session_destroy(); //effacer tous les var session (deconnecter)
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,21 +22,28 @@ if($requet->rowCount()>0){
 </head>
 <body class="bg-primary" >
     <section class="d-flex flex-column min-vh-100 justify-content-center align-items-center">
-      <div class="container">
+      <div class="container col-lg-12   col-md-10">
         <div class="row"> 
             <div class="col-md10 mx-auto rounded shadow bg-white">
              <div class="row">
                 <div class="col-md-6">
                     <div class="m-5 text-center">
                      <h1>Welcome!</h1>
-                      <form method="POST" class="m-5">
+                     <!-- error-login-message -->
+                     <!-- verifier si ilya au moins une error c-a-d $error_login diff de null -->
+                     <?php if(!empty($error_login)) { ?>
+                     <div class="alert alert-danger">
+                     <?php echo $error_login;?>
+                     </div>
+                     <?php } ?>
+                      <form method="POST" class="m-5" action="Seconnecter.php">
                         <div class="mb-3 text-start ">
                             <label class="form-label" for="email">Email</label>
-                            <input class="form-control border border-danger" type="text" id="email" name="email">
+                            <input class="form-control border " type="text" id="email" name="email">
                         </div>
                         <div class="mb-3 text-start">
                             <label class="form-label" for="password">Password</label>
-                            <input class="form-control border border-danger" type="password" id="password" name="password">
+                            <input class="form-control border " type="password" id="password" name="password">
                         </div>
                         <div class="row mb-3">
                            <div class="col-auto ">
