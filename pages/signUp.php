@@ -69,6 +69,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <script src="../js/jquery-3.6.1.min.js"></script>
+    
+    <script src="main.js"></script>
     <title>SignUp</title>
 </head>
 
@@ -108,22 +111,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                         </div>
                                         <div class="col-md-12 mb-4">
                                             <div class="form-outline">
-                                                <input type="text" id="email" name="email" class="form-control form-control-lg border border-danger" placeholder="email" required />
+                                                <input type="text" id="email" name="email" class="form-control form-control-lg  "  placeholder="email"  required />
                                             </div>
                                         </div>
                                         <div class="col-md-6 mb-4">
                                             <div class="form-outline">
-                                                <input type="password" id="password" name="password" class="form-control form-control-lg border border-danger" minlength="3" title="password doit contenir aux moin 3 character" placeholder="password" required />
+                                                <input type="password" id="password" name="password" class="form-control form-control-lg  " minlength="3" title="password doit contenir aux moin 3 character" placeholder="password" required />
                                             </div>
                                         </div>
                                         <div class="col-md-6 mb-4">
                                             <div class="form-outline">
-                                                <input type="password" id="passwordConfirm" name="passwordConfirm" class="form-control form-control-lg border border-danger" minlength="3" title="password doit contenir aux moin 3 character" placeholder="Confirmer password" required />
+                                                <input type="password" id="passwordConfirm" name="passwordConfirm" class="form-control form-control-lg  " minlength="3" title="password doit contenir aux moin 3 character" placeholder="Confirmer password" required />
                                             </div>
                                         </div>
                                         <div class="col-md-12 mb-4">
                                             <div class="form-outline">
-                                                <input type="submit" class="form-control form-control-lg btn btn-success" value="SignUp">
+                                                <input type="submit" class="form-control form-control-lg btn btn-success" id="SignUp" value="SignUp">
 
                                             </div>
                                         </div>
@@ -134,11 +137,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 <?php
                                   if(isset($arrayOfErrors) && !empty($arrayOfErrors)){
                                     foreach($arrayOfErrors as $error){
-                                        echo '<div  class="alert alert-danger col-md-12 mb-4">'. $error . '</div>';
+                                        echo '<div  class="alert alert-danger col-md-12 mb-4 ">'. $error . '</div>';
                                     }
                                   }
                                 ?>
-                            
+                                <!-- error email with ajax -->
+                            <div class="error-email"></div>
+                           
                                 <div class="mt-3">
                                     <a href="signin.php" ">Do you have  Account!</a>
                            </div>

@@ -10,12 +10,13 @@ $password='';                                                    //password of t
         try{
             $pdo=new PDO($dsn,$user,$password); 
              
-            echo 'Success Connect To Database !';
+           // echo 'Success Connect To Database !';
 
         } catch(PDOException $exc){                                //PDOException => class to handle the exception 
 
             echo 'Error in data base'.$exc->getMessage().'<br>';   //The exception message
             echo 'Error in data base'.$exc->getLine().'<br>';      //The exception line
+            exit();                                               //fermer le script ou bien die();
         }
 
 
