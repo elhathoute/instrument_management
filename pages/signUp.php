@@ -50,11 +50,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $requet =$pdo ->prepare("INSERT INTO users(nom,prenom,ville,email,password,photo,etat,role_id) VALUES(?,?,?,?,?,?,?,?) ");
             $requet->execute(array($nom,$prenom,$ville,$email,$password,$photo,$etat,$role_id));
             //crer var de success 
-            $successMessage='felicitation votre compte est cree !';
-            echo $successMessage;
+            // $successMessage='felicitation votre compte est cree !';
+            // echo $successMessage;
 
         } if(chercherParEmail($email)!=0){
             $arrayOfErrors[] = "ERROR!!email existe deja ! !";
+        
         }
     }
 }
@@ -69,9 +70,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
-    <script src="../js/jquery-3.6.1.min.js"></script>
+   
     
-    <script src="main.js"></script>
+  
     <title>SignUp</title>
 </head>
 
@@ -111,7 +112,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                         </div>
                                         <div class="col-md-12 mb-4">
                                             <div class="form-outline">
-                                                <input type="text" id="email" name="email" class="form-control form-control-lg  "  placeholder="email"  required />
+                                                <input type="text" id="email" name="email" class="form-control form-control-lg  "  placeholder="email" autocomplete="none"  required />
                                             </div>
                                         </div>
                                         <div class="col-md-6 mb-4">
@@ -164,5 +165,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </section>
 
 </body>
-
+<script src="../js/jquery-3.6.1.min.js"></script> 
+ <script src="../js/main.js"></script>
 </html>

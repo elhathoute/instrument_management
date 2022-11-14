@@ -1,11 +1,26 @@
 $(document).ready(function(){
+    $('#Signin').prop('disabled',true);
+    //email signin  
+     $("#email-login").keyup(function(){
+        let email_login =  $(this).val();
+        if(validateEmail(email_login)!==true){
+            $(this).css('border','2px dashed red');
+            $('#Signin').prop('disabled',true);
+        }else{
+            $(this).css('border','2px dashed green');
+            $('#Signin').prop('disabled',false);
+        }
+        
+     });
     //disabled button of signup
 $('#SignUp').prop('disabled',true);
-   //email
+   //email signup
     $("#email").keyup(function(){
        
-    // var email = $("#email").val();
-    if(returnValues()===0){
+     var email = $("#email").val();
+    //  console.log(validateEmail(email));
+    //  console.log(email);
+    if(returnValues()===0 ){
         $(this).css('border','2px dashed red');
         $('#SignUp').prop('disabled',true);
     }else{
@@ -16,7 +31,7 @@ $('#SignUp').prop('disabled',true);
     "url": "searchEmailAjax.php",
     "method": "POST",
     "data": {
-        email: email
+        email:email
     },
     success: function(result) {
         
@@ -64,19 +79,26 @@ $("#passwordConfirm").keyup(function(){
 });
 
 
-
-
+//create function to verify email and password
 function returnValues(){
    let email = $("#email").val();
    let confirmPass =$(passwordConfirm).val();
    let password =$("#password").val();
-if(email === '' || confirmPass ==='' || password ==='' || email.length<11 || confirmPass.length<3 || password.length<3 || password!==confirmPass ){
+if(email === '' || confirmPass ==='' || password ==='' || email.length<11 || confirmPass.length<3 || password.length<3 || password!==confirmPass ||validateEmail(email)!==true  ){
     return 0;
 }else{
     return 1;
 }
 
 }
+//function to  validate email
+
+function validateEmail(email)
+{
+    var regexEmail = /^[a-zA-Z0-9]+[-_.]?[a-zA-Z0-9]+[@]\w+[.]\w{2,3}$/;       //moha_ed@gmail(hotmail).com(ma/net)
+    return regexEmail.test(email);                                       //if equal return true if not return false
+}
+
 
 
 });//close jquey ready

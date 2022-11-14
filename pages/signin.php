@@ -39,17 +39,29 @@ session_destroy(); //effacer tous les var session (deconnecter)
                       <form method="POST" class="m-5" action="Seconnecter.php">
                         <div class="mb-3 text-start ">
                             <label class="form-label" for="email">Email</label>
-                            <input class="form-control border " type="text" id="email" name="email">
+                            <input class="form-control " placeholder="Ex:abcd_ab@gmail.com" type="text" id="email-login" name="email" value=
+                            <?php 
+                              if(isset($_COOKIE['EMAIL'])){
+                                echo $_COOKIE['EMAIL'];
+                              }
+                            ?>
+                            >
                         </div>
                         <div class="mb-3 text-start">
                             <label class="form-label" for="password">Password</label>
-                            <input class="form-control border " type="password" id="password" name="password">
+                            <input class="form-control  " type="password" id="password" name="password" value=
+                            <?php 
+                              if(isset($_COOKIE['PASSWORD'])){
+                                echo $_COOKIE['PASSWORD'];
+                              }
+                            ?>
+                            >
                         </div>
                         <div class="row mb-3">
                            <div class="col-auto ">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="rememberme-me">
-                                <label class="form-check-label " for="rememberme-me">Remember Me</label>
+                                <input class="form-check-input" type="checkbox" id="rememberme-me" name="rememberme-me">
+                                <label class="form-check-label "  for="rememberme-me">Remember Me</label>
                             </div>
                            </div> 
                            <div class="col-auto ">
@@ -58,7 +70,7 @@ session_destroy(); //effacer tous les var session (deconnecter)
                             </div>
                            </div>
                            <div>
-                            <input type="submit" class="form-control btn btn-primary mt-3" value="SignIn">
+                            <input type="submit" class="form-control btn btn-primary mt-3" id="Signin" value="SignIn">
                            </div>
                            <div class="mt-3">
                              <a href="signUp.php" ">Create Account!</a>
@@ -81,4 +93,6 @@ session_destroy(); //effacer tous les var session (deconnecter)
     </section>
     
 </body>
+<script src="../js/jquery-3.6.1.min.js"></script> 
+ <script src="../js/main.js"></script>
 </html>

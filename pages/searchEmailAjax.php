@@ -6,9 +6,9 @@
     $requet ->execute(array($email));
   
   if($requet->rowCount()>0){
-   echo  "<div class='alert alert-danger col-md-12 mb-4 error-email'>email exist  .</div>";
+   echo  "<div class='alert alert-danger col-md-12 mb-4 error-email'><strong>ERROR!</strong> email deja exist choisir un autre email  .</div>";
   }else{
-    echo  "<div class='alert alert-success col-md-12 mb-4 error-email'>email non exist  .</div>";
+    echo  "<div class='alert alert-success col-md-12 mb-4 error-email'><strong>NICE!</strong>email non exist continue .</div>";
     
 
   }
