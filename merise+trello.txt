@@ -1,3 +1,5 @@
 merise : https://app.diagrams.net/#G1RmOEj-qi2sao8gvSrvxNEoozMRkc5VEM
 
 trello : https://trello.com/b/vde2We2O/managementinstrument
+
+user stories : https://docs.google.com/spreadsheets/d/1Sy4V-OtSeJbdKI382c27Vtr4uxWCHt6QqetU1_NuY2U/edit#gid=0
