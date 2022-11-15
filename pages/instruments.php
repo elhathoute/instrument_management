@@ -9,7 +9,12 @@ left join fammilles on instruments.fammile_id=fammilles.id
 order by id desc ";
 $resultInstrument =$pdo->query($requet);
 // $result=$requet->execute(); 
-
+//requet sur les famille
+$requetFamill="SELECT * FROM fammilles ";
+$resultFamille =$pdo->query($requetFamill);
+//requet sur la classification
+$requetclasse="SELECT * FROM classifications ";
+$resultclasse =$pdo->query($requetclasse);
 
 
 ?>
@@ -27,7 +32,8 @@ $resultInstrument =$pdo->query($requet);
 </head>
 <body>
   <?php require_once('navbar.php');?>
-
+<div class="container">
+  <!-- container of add and search instruments -->
 <div class="container-fluid w-75 margintop ">
   <div class="col">
    <div class="card bg-light">
@@ -41,41 +47,36 @@ $resultInstrument =$pdo->query($requet);
     </form>
     </div>
     <div>
-    <a class="btn btn-success rounded-pill" id="add" href=""><i class="fa fa-plus"></i> Add</a>
+    <a  href="#modal-instrument" data-bs-toggle="modal" class="btn btn-success rounded-pill" id="add" href=""><i class="fa fa-plus"></i> Add</a>
     </div>
    
    </div>
    </div>
   </div>
 </div>
- <div  class="row row-cols-1 row-cols-lg-4 row-cols-md-3 row-cols-sm-2  g-4 cardes "> 
+<!-- container of instruments -->
+ <div  class="row row-cols-1 row-cols-lg-4 row-cols-md-3 row-cols-sm-2  g-5 justify-content-center cardes  "> 
  <?php while($instrument = $resultInstrument->fetch(PDO::FETCH_ASSOC)){ ?>
  
   <div class="col">
     <div class="card h-100">
-      <div class="card-header bg-dark h-50 ">
-      <img src="img/<?php echo $instrument['photo'];?>" class="card-img-top  rounded-pill " alt="...">
+      <div class="card-header bg-dark h-100 ">
+      <img src="img/<?php echo $instrument['photo'];?>" class="card-img-top  rounded h-100" alt="...">
       </div>
       <div class="card-body">
         <h6>#<?php echo $instrument['id'];?> created By  <strong class="text-success"><?php echo $instrument['nom_user'];?></strong></h6>
         <h5 class="card-title"> <?php echo $instrument['nom'];?></h5>
         <!-- <p class="card-text" title="<?php echo $instrument['description'];?>"><?php echo substr( $instrument['description'],0,30)."...";?></p> -->
-        <!-- <p class="bg-light rounded text-dark"><strong>Classification:</strong> <?php echo $instrument['nom_classification'];?></p>
+        <!-- <p class="bg-light rounded text-dark"><strong>Classification:</strong> <?php echo $instrument['nom_classification'];?></p>-->
         <p class="bg-light rounded text-dark"><strong>Famille:</strong> <?php echo $instrument['nom_famille'];?></p>
-        <p class="bg-light rounded text-dark"><strong>Origine:</strong> <?php echo $instrument['origine'];?></p> -->
-       <?php if($instrument['qte']==0){
-echo '<p class="bg-danger rounded text-light"><strong><i class="fa fa-battery-empty" aria-hidden="true"></i>&nbsp;Qte:</strong>'.$instrument['qte'].'&nbsp;alimenter le stock!</p>';
-        }else{
-          echo '<p class="bg-light rounded text-dark"><strong><i class="fa fa-battery-full" aria-hidden="true"></i>&nbsp;Qte:</strong>'.$instrument['qte'].'</p>';
-        } ?>
-        
-        <p class="bg-light rounded text-dark"><strong><i class="fa fa-money"></i>&nbsp;Prix:</strong> <?php echo $instrument['prix'];?></p>
+        <p class="bg-light rounded text-dark"><strong>Origine:</strong> <?php echo $instrument['origine'];?></p> 
+       
      
       </div>
       <div class="card-footer">
-       <button class="btn btn-success"><i class="fa fa-eye"></i></button>
-       <button class="btn btn-warning"><i class="fa fa-edit"></i></button>
-       <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
+       <a href="view-instrument.php?id=<?php echo $instrument['id']; ?>"  class="btn btn-success"><i class="fa fa-eye"></i></a>
+       <a class="btn btn-warning"><i class="fa fa-edit"></i></a>
+       <a class="btn btn-danger"><i class="fa fa-trash"></i></a>
       </div>
     </div>
   </div>
@@ -84,6 +85,99 @@ echo '<p class="bg-danger rounded text-light"><strong><i class="fa fa-battery-em
 
   
 </div>
+</div>
+
+
+<!-- modal ajout instrumrnts -->
+<div class="modal fade"  id="modal-instrument">
+		<div class="modal-dialog">
+			<div class="modal-content">
+    
+				<form action="ajouterInstrumrnt.php" method="POST" id="form-instrument" >
+					<div class="modal-header">
+						<h5 id="header-instrument" class="modal-title">Add instruments</h5>
+						<a href="#" class="btn-close" data-bs-dismiss="modal"></a>
+					</div>
+					<div class="modal-body">
+				
+            <div class="row">
+						<div class="mb-3">
+							<input type="hidden" class="form-control" id="instrument-id" value="" name="id" >
+						</div>
+						
+						<div class="mb-1 col-md-6">
+							<label class="form-label">nom</label>
+							<input type="text" class="form-control" id="instrument-nom" name="nom" autocomplete="off"  placeholder="Exemple:instrument"/>
+						</div>	
+            <div class="mb-1 col-md-6">
+							<label class="form-label">origine</label>
+							<input type="text" class="form-control" id="instrument-origine" name="origine" autocomplete="off"  placeholder="Exemple:Europe"/>
+						</div>
+            <div class="mb-1 col-md-6">
+							<label class="form-label">materiaux</label>
+							<input type="text" class="form-control" id="instrument-materiaux" name="materiaux" autocomplete="off"  placeholder="Exemple:bois"/>
+						</div>	
+            <div class="mb-1 col-md-6">
+							<label class="form-label">dimension</label>
+							<input type="text" class="form-control" id="instrument-dimension" name="dimension" autocomplete="off"  placeholder="Exemple:1m"/>
+						</div>
+            <div class="mb-1 col-md-12">
+							<label class="form-label">photo</label>
+							<input type="file" class="form-control" id="instrument-photo" name="photo" />
+						</div>	
+            <div class="mb-1 col-md-12">
+							<label class="form-label">video</label>
+							<input type="file" class="form-control" id="instrument-video" name="video" />
+						</div>	
+            <div class="mb-1 col-md-6">
+							<label class="form-label">Qte</label>
+							<input type="number" class="form-control" id="instrument-qte" name="qte" autocomplete="off"  placeholder="Exemple:10"/>
+						</div>
+            <div class="mb-1 col-md-6">
+							<label class="form-label">prix</label>
+							<input type="number" class="form-control" id="instrument-prix" name="prix" autocomplete="off"  placeholder="Exemple:20"/>
+						</div>
+					
+						<div class="mb-3 col-md-6">
+							<label class="form-label">famille</label>
+							<select class="form-select" id="instrument-famille" name="famille" >
+                <option value="" selected>Please select</option>
+                <?php while($famille = $resultFamille->fetch(PDO::FETCH_ASSOC)){?>
+								<option value="<?php echo  $famille['id'];?>" ><?php echo $famille['name']?></option>
+						<?php 	} ?>
+							</select>
+						</div>
+            <div class="mb-3 col-md-6">
+							<label class="form-label">classe</label>
+							<select class="form-select" id="instrument-classe" name="classe" >
+                <option value="" selected>Please select</option>
+                <?php while($classe = $resultclasse->fetch(PDO::FETCH_ASSOC)){?>
+								<option value="<?php echo $classe['id'];?>" ><?php echo $classe['name']?></option>
+						<?php 	} ?>
+							</select>
+						</div>
+            <div class="mb-1 col-md-6">
+							<label class="form-label">user_id</label>
+							<input type="number" class="form-control" id="instrument-user_id" readonly name="user_id" value="<?php echo $_SESSION['user']['id']; ?>" />
+						</div>
+					
+						<div class="mb-0">
+							<label class="form-label">Description</label>
+							<textarea class="form-control h-75" rows="10" id="instrument-description" name="description" ></textarea>
+						</div>
+            </div>
+					</div>
+					<div class="modal-footer">
+						<a href="#" class="btn btn-white" data-bs-dismiss="modal">Cancel</a>
+								<button type="submit" name="save" class="btn btn-primary instrument-action-btn" id="instrument-save-btn">Save</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+  <!--end modal ajout instrumrnts -->
+
+
 
 </body>
 <script src="../js/jquery-3.6.1.min.js"></script> 

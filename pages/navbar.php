@@ -27,7 +27,11 @@
   
       <li class="nav-item dropdown">
          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-           <img src="http://localhost/management_instruments/pages/img/<?php echo $_SESSION['user']['photo'] ?>" class="rounded-circle" width="50" >
+           <img src="http://localhost/management_instruments/pages/img/<?php 
+           if(!empty($_SESSION['user']['photo']))
+           echo $_SESSION['user']['photo']; //if photo exist
+          else echo "user-1.jpg" ;           //if photo not exist
+           ?>" class="rounded-circle" width="50" >
        </a>
          <ul class="dropdown-menu w-25" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href=""><i class="fa fa-user"></i>&nbsp;&nbsp;<?php echo $_SESSION['user']['prenom'] ?></a></li>
