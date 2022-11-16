@@ -1,3 +1,4 @@
+
 <div id="navbar">
 
 <nav class="navbar navbar-expand-lg  bg-dark  ">
@@ -13,10 +14,10 @@
         <a class="nav-link active"   aria-current="page" href="http://localhost/management_instruments/"><i class="fa fa-home"></i> Home</a>
         </li>
         <li class="nav-item" >
-       <a class="nav-link" href="http://localhost/management_instruments/pages/instruments.php"><i class="fa fa-music"></i> Instruments</a>
+       <a class="nav-link active" id="instrument-li" href="http://localhost/management_instruments/pages/instruments.php"><i class="fa fa-music"></i> Instruments</a>
         </li>
         <li class="nav-item" >
-        <a class="nav-link" href="http://localhost/management_instruments/pages/users.php"><i class="fa fa-users"></i> Users</a>
+        <a class="nav-link active" href="http://localhost/management_instruments/pages/users.php"><i class="fa fa-users"></i> Users</a>
 
         </li>
        

@@ -17,9 +17,57 @@ require_once('pages/maSession.php');
 </head>
 <body>
   <?php require_once('pages/navbar.php');?>
+<!-- dashboard -->
+<div class="container mt-5">
 
 
- 
+  <div class="row">
+
+                        <!-- users -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-primary shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row  align-items-center">
+                                        <div class="col ">
+                                            <div class="text-xs  text-primary text-uppercase mb-1">
+                                                Users</div>
+                                            <div class="h5 mb-0">40,00</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fa fa-users fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- instruments -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-primary shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row  align-items-center">
+                                        <div class="col ">
+                                        <div class="text-xs  text-primary text-uppercase mb-1">
+                                                Instruments</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">40,00</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fa fa-music fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                       
+                       
+                        
+  
+  
+  
+
+  </div> 
+  </div>
 
 </body>
 <script src="./js/jquery-3.6.1.min.js"></script> 

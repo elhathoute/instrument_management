@@ -33,7 +33,7 @@ body{
      padding-bottom: 0px !important;
 }
 .cardes{
-  margin-top: 20px;
+  margin-top: 10px;
   padding: 0 30px;
 }
 .margintop{
@@ -41,12 +41,12 @@ body{
 }
 @media screen and (max-width: 674px) {
   #search{
-    width: 80px;
+    width: 100px;
     height: 40px;
   }
   #add{
 
-    width: 80px;
+    width: 100px;
     height: 40px;
   }
 } 

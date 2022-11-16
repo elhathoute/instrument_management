@@ -1,6 +1,7 @@
 <?php
 require_once('../database/connexion.php');
 require_once('../functions/function.php');
+session_start();
 
 //accées a cette page seulement via la method POST non GET
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -52,7 +53,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             //crer var de success 
             // $successMessage='felicitation votre compte est cree !';
             // echo $successMessage;
-
+           
+              header('location:signin.php');
+              $_SESSION['success']='vous ete bien inscrit avec succes!';
         } if(chercherParEmail($email)!=0){
             $arrayOfErrors[] = "ERROR!!email existe deja ! !";
         

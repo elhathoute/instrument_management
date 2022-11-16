@@ -29,6 +29,16 @@ session_destroy(); //effacer tous les var session (deconnecter)
                 <div class="col-md-6">
                     <div class="m-5 text-center">
                      <h1>Welcome!</h1>
+                     <?php   if(!empty($_SESSION['success'])) {?>
+                     <div class="alert alert-success" >
+                      <?php 
+                      
+                        echo  $_SESSION['success'];
+                        unset($_SESSION['success']);
+                      
+                      ?>
+                     </div>
+                   <?php  } ?>
                      <!-- error-login-message -->
                      <!-- verifier si ilya au moins une error c-a-d $error_login diff de null -->
                      <?php if(!empty($error_login)) { ?>
