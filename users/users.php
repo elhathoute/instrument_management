@@ -1,5 +1,5 @@
 <?php
-require_once('maSession.php');
+require_once('../pages/maSession.php');
 require_once('../database/connexion.php');
 
 $requet = $pdo->query("select users.*,roles.nom as nom_role from users left join roles on users.role_id=roles.id order by id desc ");
@@ -23,8 +23,8 @@ $requet = $pdo->query("select users.*,roles.nom as nom_role from users left join
 </head>
 
 <body>
-    <?php require_once('navbar.php'); ?>
-    <div class="container-fluid w-75  margintop ">
+    <?php require_once('../pages/navbar.php'); ?>
+    <div class="container w-50  margintop ">
         <div class="col">
             <div class="card bg-light">
                 <div class="card-header text-center">
@@ -67,8 +67,8 @@ $requet = $pdo->query("select users.*,roles.nom as nom_role from users left join
     <!-- :table -->
     <div class="container mt-5">
         <div class="row">
-            <div class="col-md-10 offset-1">
-                <table class="table table-bordered">
+            <div class="col-lg-12   table-responsive" id="users">
+                <table class="table table-bordered table-dark ">
                     <thead>
 
                         <tr>
@@ -102,7 +102,7 @@ $requet = $pdo->query("select users.*,roles.nom as nom_role from users left join
                                 <td><?php echo $users['prenom']; ?></td>
                                 <td><?php echo $users['ville']; ?></td>
                                 <td><?php echo $users['email']; ?></td>
-                                <td><img src="img/<?php echo $users['photo']; ?>" class="rounded-circle" width="50px" alt=""> </td>
+                                <td><img src="../pages/img/<?php echo $users['photo']; ?>" class="rounded-circle" width="50px" alt=""> </td>
                                 <?php if ($users['etat'] == 1) { ?>
                                     <td >active</td>
                                 <?php } else { ?>
@@ -116,13 +116,14 @@ $requet = $pdo->query("select users.*,roles.nom as nom_role from users left join
                                 <?php } ?>
                                 <?php if($_SESSION['user']['role_id']==1){?>
                                 <?php if(empty($count['user_id'])) {?>
-
+                         <!-- if user non lier a une ou plusieurs instruments -->
                                 <td>
-                              
-                                    <a class="btn btn-warning" href=""><i class="fa fa-edit"></i></a>
-                                   
+                              <!-- update -->
+                                    <a href="editerUser.php?id=<?php echo $users['id']; ?>&etat=<?php echo $users['etat']; ?>&role=<?php echo $users['role_id']; ?>" id="edit-user" class="btn btn-warning" ><i class="fa fa-edit"></i></a>
+                            <!-- delete -->
                                     <a  onclick="return confirm('vous ete sur de supp cette user?');" class="btn btn-danger" href="supprimerUser.php?id=<?php echo $users['id'];?>"><i class="fa fa-trash"></i></a>
-                                 <a class="btn btn-info" href="activerUser.php?id=<?php echo $users['id'];?>&etat=<?php echo $users['etat'];?>">  
+                            <!--activer/desactiver  -->
+                                    <a class="btn btn-info" href="activerUser.php?id=<?php echo $users['id'];?>&etat=<?php echo $users['etat'];?>">  
                                                 <?php  
                                                     if($users['etat']==0)
                                                         echo '<i class="fa fa-remove"></i>';
@@ -132,8 +133,12 @@ $requet = $pdo->query("select users.*,roles.nom as nom_role from users left join
                                             </a>
                                 </td>
                                 <?php }  else {?>
+                                     <!-- if user  lier a une ou plusieurs instruments(eliminer la supp  de user) -->
                                 <td>
-                                <a class="btn btn-warning" href=""><i class="fa fa-edit"></i></a>
+                                      <!-- update -->
+                                      <a href="editerUser.php?id=<?php echo $users['id']; ?>&etat=<?php echo $users['etat']; ?>&role=<?php echo $users['role_id']; ?>" id="edit-user" class="btn btn-warning" href=""><i class="fa fa-edit"></i></a>
+                                
+                                 <!--activer/desactiver  -->
                                 <a class="btn btn-info" href="activerUser.php?id=<?php echo $users['id'];?>&etat=<?php echo $users['etat'];?>"> 
                                                 <?php  
                                                     if($users['etat']==0)
@@ -209,16 +214,20 @@ $requet = $pdo->query("select users.*,roles.nom as nom_role from users left join
                     </div>
                     <div class="modal-footer">
                         <a href="#" class="btn btn-white" data-bs-dismiss="modal">Cancel</a>
-                        <button type="submit" name="save" class="btn btn-primary user-action-btn" id="instrument-save-btn">Save</button>
+						<!-- <button  type="submit" name="update" class="btn btn-warning" id="user-update-btn">Update</button> -->
+                        <button type="submit" name="save" class="btn btn-primary user-action-btn" id="user-save-btn">Save</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 
+
 </body>
+<!-- <script src="search.js"></script> -->
 <script src="update.js"></script>
 <script src="../js/jquery-3.6.1.min.js"></script>
+<script src="../pages/search.js"></script>
 <script src="../js/main.js"></script>
 
 </html>

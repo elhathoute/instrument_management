@@ -1,6 +1,6 @@
 <?php
 //pour acceder a la page index il faut faire la login
-require_once('maSession.php');
+require_once('../pages/maSession.php');
 require_once('../database/connexion.php');
 
     $id = $_GET['id'];
@@ -23,7 +23,7 @@ require_once('../database/connexion.php');
     <title>Management_Instrument</title>
 </head>
 <body>
-  <?php require_once('navbar.php');?>
+<?php require_once('../pages/navbar.php');?>
 <div class="container">
 <div class="card m-5" >
   <div class="row g-0">

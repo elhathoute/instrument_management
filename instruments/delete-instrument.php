@@ -1,6 +1,6 @@
 <?php
-//pour acceder a la page index il faut faire la login
-require_once('maSession.php');
+session_start();
+if(isset($_SESSION['user']) ){
 require_once('../database/connexion.php');
 
     $id = $_GET['id'];
@@ -9,4 +9,7 @@ require_once('../database/connexion.php');
     $requetDeleteInstrument =$pdo->prepare("delete from instruments where id=?");
     $requetDeleteInstrument->execute(array($id));
     header('location:instruments.php');
+}else{
+    header('location:../pages/signin.php');
+}
 ?>

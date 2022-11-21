@@ -1,6 +1,6 @@
 <?php
 //pour acceder a la page index il faut faire la login
-require_once('maSession.php');
+require_once('../pages/maSession.php');
 require_once('../database/connexion.php');
 $requet="SELECT instruments.*,users.nom as nom_user,classifications.name as nom_classification,classifications.id as id_classe,fammilles.name as nom_famille,fammilles.id as id_famille FROM  instruments 
 left join users on instruments.user_id=users.id 
@@ -28,10 +28,11 @@ $resultclasse =$pdo->query($requetclasse);
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous" defer></script>
     <link rel="stylesheet" href="../css/style.css">
+	<!-- <script src="../js/jquery-3.6.1.min.js"></script>  -->
     <title>Management_Instrument</title>
 </head>
 <body>
-  <?php require_once('navbar.php');?>
+  <?php require_once('../pages/navbar.php');?>
 <div class="container">
   <!-- container of add and search instruments -->
 <div class="container-fluid w-75  margintop ">
@@ -44,7 +45,7 @@ $resultclasse =$pdo->query($requetclasse);
 	
     <div>
     <form class="form-inline">
-      <input class="form-control" id="search" type="search" placeholder="Search" aria-label="Search">
+      <input class="form-control" id="search-instrument" type="search" placeholder="Search" aria-label="Search">
     </form>
     </div>
     <div>
@@ -56,13 +57,13 @@ $resultclasse =$pdo->query($requetclasse);
   </div>
 </div>
 <!-- container of instruments -->
- <div  class="row row-cols-1 row-cols-lg-4 row-cols-md-3 row-cols-sm-2  g-4 justify-content-center cardes  "> 
+ <div id="instruments" class="row row-cols-1 row-cols-lg-4 row-cols-md-3 row-cols-sm-2  g-4 justify-content-center cardes  "> 
  <?php while($instrument = $resultInstrument->fetch(PDO::FETCH_ASSOC)){ ?>
  
-  <div class="col">
+  <div  class="col">
     <div class="card h-100">
       <div class="card-header bg-light h-100 ">
-      <img src="img/<?php echo $instrument['photo'];?>" class="card-img-top  rounded h-100" alt="...">
+      <img src="../pages/img/<?php echo $instrument['photo'];?>" class="card-img-top  rounded h-100" alt="...">
       </div>
       <div class="card-body">
         <h6>#<?php echo $instrument['id'];?> created By  <strong class="text-success"><?php echo $instrument['nom_user'];?></strong></h6>
@@ -189,9 +190,10 @@ $resultclasse =$pdo->query($requetclasse);
   <!--end modal ajout instrumrnts -->
 
 
-
 </body>
-<script src="update.js"></script>
 <script src="../js/jquery-3.6.1.min.js"></script> 
- <script src="../js/main.js"></script>
+<script src="../pages/update.js"></script>
+<script src="../pages/search.js"></script>
+<script src="../js/main.js"></script>
+
 </html>

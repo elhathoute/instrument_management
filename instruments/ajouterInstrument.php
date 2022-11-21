@@ -1,6 +1,6 @@
 <?php
 //pour acceder a la page index il faut faire la login
-require_once('maSession.php');
+require_once('../pages/maSession.php');
 require_once('../database/connexion.php');
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $nom = $_POST['nom'];

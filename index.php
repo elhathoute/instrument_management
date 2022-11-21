@@ -1,6 +1,20 @@
 <?php
 //pour acceder a la page index il faut faire la login
 require_once('pages/maSession.php');
+require_once('database/connexion.php');
+//users
+$requetUsers=$pdo->query("SELECT * FROM users");
+$countUsers=$requetUsers->rowCount();
+//instrument
+$requetInstrument=$pdo->query("SELECT * FROM instruments");
+$countInstrument=$requetInstrument->rowCount();
+//fammille
+$requetFammille=$pdo->query("SELECT * FROM fammilles");
+$countFammille=$requetFammille->rowCount();
+//Classe
+$requetClasse=$pdo->query("SELECT * FROM classifications");
+$countClasse=$requetClasse->rowCount();
+
 
 ?>
 <!DOCTYPE html>
@@ -31,7 +45,7 @@ require_once('pages/maSession.php');
                                         <div class="col ">
                                             <div class="text-xs  text-primary text-uppercase mb-1">
                                                 Users</div>
-                                            <div class="h5 mb-0">40,00</div>
+                                            <div class="h5 mb-0"><?php echo $countUsers;?></div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fa fa-users fa-2x text-gray-300"></i>
@@ -48,7 +62,7 @@ require_once('pages/maSession.php');
                                         <div class="col ">
                                         <div class="text-xs  text-primary text-uppercase mb-1">
                                                 Instruments</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">40,00</div>
+                                                <div class="h5 mb-0"><?php echo $countInstrument;?></div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fa fa-music fa-2x text-gray-300"></i>
@@ -56,7 +70,42 @@ require_once('pages/maSession.php');
                                     </div>
                                 </div>
                             </div>
+                        </div> 
+                        <!-- famille -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-primary shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row  align-items-center">
+                                        <div class="col ">
+                                        <div class="text-xs  text-primary text-uppercase mb-1">
+                                                Fammille</div>
+                                                <div class="h5 mb-0"><?php echo $countFammille;?></div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fa fa-headphones fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+                         <!-- cllassification -->
+                         <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-primary shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row  align-items-center">
+                                        <div class="col ">
+                                        <div class="text-xs  text-primary text-uppercase mb-1">
+                                                classifications</div>
+                                                <div class="h5 mb-0"><?php echo $countClasse;?></div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fa fa-pie-chart fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                             
                         
                         
                        

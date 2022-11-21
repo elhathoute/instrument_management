@@ -22,7 +22,7 @@ function edit(id,id_fammille,id_classe) {
     const imageInput = document.getElementById('instrument-photo');
     // Create a new File object
     const myImage = new File([''],image);
-    // Now let's create a DataTransfer to get a FileList
+    //  create a DataTransfer to get a FileList(image)
     var dataTransfer = new DataTransfer();
     dataTransfer.items.add(myImage);
     imageInput.files = dataTransfer.files;
@@ -32,7 +32,7 @@ function edit(id,id_fammille,id_classe) {
    const videoInput = document.getElementById('instrument-video');
    // Create a new File object
    const myVideo = new File([''],video);
-   // Now let's create a DataTransfer to get a FileList
+   //  create a DataTransfer to get a FileList(video)
    var dataTransfer = new DataTransfer();
    dataTransfer.items.add(myVideo);
    videoInput.files = dataTransfer.files;

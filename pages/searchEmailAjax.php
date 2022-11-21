@@ -14,19 +14,4 @@
   }
 
    }
-
-
-  // $email=isset($_POST['email'])  ?  $_POST['email'] :''; // return input of email
-  // var_dump($email);
- 
-  // $requet = $pdo->prepare("select * from users where email=?");
-  //   $requet ->execute(array($email));
-  
-  // if($requet->rowCount()>0){
-  //  echo  '<div class="error-email">email exist</div>';
-  // }else{
-  //  echo  '<div class="error-email">email non exist</div>';
-    
-
-  // }
 ?>

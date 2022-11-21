@@ -74,11 +74,7 @@ session_destroy(); //effacer tous les var session (deconnecter)
                                 <label class="form-check-label "  for="rememberme-me">Remember Me</label>
                             </div>
                            </div> 
-                           <div class="col-auto ">
-                            <div class="text-end">
-                                <a href="forgetPassword.php">Forgot Password?</a>
-                            </div>
-                           </div>
+                         
                            <div>
                             <input type="submit" class="form-control btn btn-primary mt-3" id="Signin" value="SignIn">
                            </div>

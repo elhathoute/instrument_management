@@ -1,6 +1,7 @@
 <?php
-//pour acceder a la page index il faut faire la login
-require_once('maSession.php');
+session_start();
+
+if(isset($_SESSION['user'])){
 require_once('../database/connexion.php');
 
     $id = $_POST['id'];
@@ -23,4 +24,7 @@ require_once('../database/connexion.php');
       $result=$requetUpdateInstrument->fetch();
 
       header('location:instruments.php');
+    }else{
+      header('location:../pages/signin.php');
+  }
 ?>
