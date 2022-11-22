@@ -11,13 +11,13 @@
     <div class="collapse navbar-collapse " id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
       <li class="nav-item " >
-        <a class="nav-link active"   aria-current="page" href="http://localhost/management_instruments/index.php"><i class="fa fa-home"></i> Home</a>
+        <a class="nav-link "   aria-current="page" href="http://localhost/management_instruments/index.php"><i class="fa fa-home"></i> Home</a>
         </li>
         <li class="nav-item" >
-       <a class="nav-link active" id="instrument-li" href="http://localhost/management_instruments/instruments/instruments.php"><i class="fa fa-music"></i> Instruments</a>
+       <a class="nav-link " id="instrument-li" href="http://localhost/management_instruments/instruments/instruments.php"><i class="fa fa-music"></i> Instruments</a>
         </li>
         <li class="nav-item" >
-        <a class="nav-link active" href="http://localhost/management_instruments/users/users.php"><i class="fa fa-users"></i> Users</a>
+        <a class="nav-link " href="http://localhost/management_instruments/users/users.php"><i class="fa fa-users"></i> Users</a>
 
         </li>
        

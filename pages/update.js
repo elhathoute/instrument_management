@@ -17,25 +17,6 @@ function edit(id,id_fammille,id_classe) {
      
         document.getElementById('fammille'+id_fammille).selected=true;
         document.getElementById('classe'+id_classe).selected=true;
-        //get image
-    let image = document.getElementById(id).getAttribute("data-photo");
-    const imageInput = document.getElementById('instrument-photo');
-    // Create a new File object
-    const myImage = new File([''],image);
-    //  create a DataTransfer to get a FileList(image)
-    var dataTransfer = new DataTransfer();
-    dataTransfer.items.add(myImage);
-    imageInput.files = dataTransfer.files;
-   
-   //get video
-   let video = document.getElementById(id).getAttribute("data-video");
-   const videoInput = document.getElementById('instrument-video');
-   // Create a new File object
-   const myVideo = new File([''],video);
-   //  create a DataTransfer to get a FileList(video)
-   var dataTransfer = new DataTransfer();
-   dataTransfer.items.add(myVideo);
-   videoInput.files = dataTransfer.files;
 //get description
      document.getElementById("instrument-description").value=document.getElementById(id).getAttribute("data-desc");
  //hidden the btn of save and show update

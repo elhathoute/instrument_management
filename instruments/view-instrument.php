@@ -29,7 +29,7 @@ require_once('../database/connexion.php');
   <div class="row g-0">
     <div class="col-md-4">
       <!-- <img src="./img/<?php echo $result['photo']; ?>" class="img-fluid rounded h-100" alt="..."> -->
-      <div class="h-100" style="background-position: center; background-repeat: no-repeat; background-size: cover; background-image: url(./img/<?php echo $result['photo']; ?>);">
+      <div class="h-100" style="background-position: center; background-repeat: no-repeat; background-size: cover; background-image: url(../pages/img/<?php echo $result['photo']; ?>);">
 
       </div>
     </div>
@@ -49,7 +49,7 @@ echo '<p class="bg-danger rounded text-light"><strong><i class="fa fa-battery-em
  
         <p class="card-text"><strong>Description: </strong> <?php echo $result['description']; ?></p>
         <video class="w-50  border rounded p-3 " controls >
-  <source src="./img/<?php echo $result['video']; ?>" type="video/mp4">
+  <source src="../pages/img/<?php echo $result['video']; ?>" type="video/mp4">
  
 </video>
       </div>
