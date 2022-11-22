@@ -11,7 +11,9 @@ $password = $_POST['password'];
 $rememberMe =$_POST['rememberme-me'];
 
 if(empty($email) || empty($password)){
-    echo 'email ou  password est vide';
+  
+    $_SESSION['error-login']='<strong>Error!</strong>email ou  password est vide!';
+    header('location:signin.php');// donc on va rediriger user a la page login
 }else{
 $requet=$pdo->prepare("SELECT * FROM users where email=? and password=?");
 $requet->execute(array($email,$password)); // executer la requete
@@ -40,11 +42,5 @@ if($user=$requet->fetch()){     // fetch =>return un objet(tableaux associative)
 
 }
 }
-
-
-
-
-
-
 }
 ?>

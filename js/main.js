@@ -1,4 +1,5 @@
 $(document).ready(function(){
+    //disabled btn of sigin
     $('#Signin').prop('disabled',true);
     //email signin  
      $("#email-login").keyup(function(){
@@ -18,8 +19,6 @@ $('#SignUp').prop('disabled',true);
     $("#email").keyup(function(){
        
      var email = $("#email").val();
-    //  console.log(validateEmail(email));
-    //  console.log(email);
     if(returnValues()===0 ){
         $(this).css('border','2px dashed red');
         $('#SignUp').prop('disabled',true);

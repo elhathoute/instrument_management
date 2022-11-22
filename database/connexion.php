@@ -16,7 +16,6 @@ $password='';                                                    //password of t
 
             echo 'Error in data base'.$exc->getMessage().'<br>';   //The exception message
             echo 'Error in data base'.$exc->getLine().'<br>';      //The exception line
-            exit();                                               //fermer le script ou bien die();
         }
 
 

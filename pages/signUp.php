@@ -32,14 +32,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (empty($password)) { //si le password exist mais  vide
             $arrayOfErrors[] = "ERROR!!password ne peut pas etre vide !";
         }
-        if (md5($password) !== md5($passwordConfirm)) {   //crypter les deux password et comparer 
+        if (($password) !== ($passwordConfirm)) {   //crypter les deux password et comparer 
             $arrayOfErrors[] = "ERROR!!les deux password ne sont pas egaux!";
         }
     }
 
     //verifier email
     if (isset($email)) {
-        $email_filter = filter_var($email, FILTER_VALIDATE_EMAIL);       //filter email (supp les balise et les character speciaux) return true si emailvalide
+        $email_filter = filter_var($email, FILTER_VALIDATE_EMAIL);       //filter email => return true si emailvalide
         if ($email_filter === false) {
     $arrayOfErrors[] = "ERROR! email n'est pas valide !";
         }
@@ -50,15 +50,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if(chercherParEmail($email)==0){
             $requet =$pdo ->prepare("INSERT INTO users(nom,prenom,ville,email,password,photo,etat,role_id) VALUES(?,?,?,?,?,?,?,?) ");
             $requet->execute(array($nom,$prenom,$ville,$email,$password,$photo,$etat,$role_id));
-            //crer var de success 
-            // $successMessage='felicitation votre compte est cree !';
-            // echo $successMessage;
-           
+            //créer une session success
+            $_SESSION['success']='vous ete bien inscrit avec succes!';
               header('location:signin.php');
-              $_SESSION['success']='vous ete bien inscrit avec succes!';
+            
         } if(chercherParEmail($email)!=0){
             $arrayOfErrors[] = "ERROR!!email existe deja ! !";
-        
         }
     }
 }
