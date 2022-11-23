@@ -4,4 +4,5 @@ trello : https://trello.com/b/vde2We2O/managementinstrument
 
 user stories : https://docs.google.com/spreadsheets/d/1Sy4V-OtSeJbdKI382c27Vtr4uxWCHt6QqetU1_NuY2U/edit#gid=0
 
-maquette (figma) : https://www.figma.com/file/fhUnoIMSWp7GuomybQhAmb/Untitled?node-id=0%3A1
+maquette (figma-v1) : https://www.figma.com/file/fhUnoIMSWp7GuomybQhAmb/Untitled?node-id=0%3A1 
+maquette (figma-v2) : https://www.figma.com/file/sB4ZWm4EM7V9RM9eXP0de8/instrument-version-2?node-id=0%3A1&t=8QdQQhfVphBAO8dC-0
