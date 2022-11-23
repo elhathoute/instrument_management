@@ -35,7 +35,7 @@ $resultclasse =$pdo->query($requetclasse);
   <?php require_once('../pages/navbar.php');?>
 <div class="container">
   <!-- container of add and search instruments -->
-<div class="container-fluid w-75  margintop ">
+<div class="container   margintop ">
   <div class="col">
    <div class="card bg-light">
    <div class="card-header text-center">
@@ -57,23 +57,21 @@ $resultclasse =$pdo->query($requetclasse);
   </div>
 </div>
 <!-- container of instruments -->
- <div id="instruments" class="row row-cols-1 row-cols-lg-4 row-cols-md-3 row-cols-sm-2  g-4 justify-content-center cardes  "> 
+ <div id="instruments" class="row  row-cols-lg-4 row-cols-md-3 row-cols-sm-2  g-4 justify-content-center cardes  "> 
  <?php while($instrument = $resultInstrument->fetch(PDO::FETCH_ASSOC)){ ?>
  
   <div  class="col">
     <div class="card h-100">
-      <div class="card-header bg-light h-100 ">
+      <div class="card-header bg-light h-50 ">
       <img src="../pages/img/<?php echo $instrument['photo'];?>" class="card-img-top  rounded h-100" alt="...">
       </div>
-      <div class="card-body">
+      <div class="card-body ">
         <h6>#<?php echo $instrument['id'];?> created By  <strong class="text-success"><?php echo $instrument['nom_user'];?></strong></h6>
         <h5 class="card-title"> <?php echo $instrument['nom'];?></h5>
-        <!-- <p class="card-text" title="<?php echo $instrument['description'];?>"><?php echo substr( $instrument['description'],0,30)."...";?></p> -->
         <p class="bg-light rounded text-dark"><strong>Classification:</strong> <?php echo $instrument['nom_classification'];?></p>
         <p class="bg-light rounded text-dark"><strong>Famille:</strong> <?php echo $instrument['nom_famille'];?></p>
-        <!-- <p class="bg-light rounded text-dark"><strong>Origine:</strong> <?php echo $instrument['origine'];?></p>  -->
       </div>
-      <div class="card-footer d-flex justify-content-around">
+      <div class="card-footer d-flex justify-content-evenly">
        <a href="view-instrument.php?id=<?php echo $instrument['id']; ?>" class="btn btn-success"><i class="fa fa-eye"></i></a>
        <a href="#modal-instrument" 
 	   data-origine="<?php echo $instrument['origine'];?>" 

@@ -24,7 +24,7 @@ $requet = $pdo->query("select users.*,roles.nom as nom_role from users left join
 
 <body>
     <?php require_once('../pages/navbar.php'); ?>
-    <div class="container w-50  margintop ">
+    <div class="container  margintop ">
         <div class="col">
             <div class="card bg-light">
                 <div class="card-header text-center">
