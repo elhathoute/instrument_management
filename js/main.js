@@ -99,11 +99,5 @@ function validateEmail(email)
 }
 
 
-// $("#search-instrument").keyup(function(){
-  
-//     console.log($("#search-instrument").val());
-
-// });
-
 });//close jquey ready
 

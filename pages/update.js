@@ -4,7 +4,7 @@ function edit(id,id_fammille,id_classe) {
     console.log(id_classe);
 	document.getElementById("header-instrument").innerHTML = '<h5>UPDATE Instrument</h5>';
 	document.getElementById("instrument-id").value = id;
-    // console.log(document.getElementById(id).parentElement.parentElement.children[1].children[1].innerHTML);
+  
      document.getElementById("instrument-nom").value =document.getElementById(id).parentElement.parentElement.children[1].children[1].innerHTML;
 
      document.getElementById("instrument-origine").value=document.getElementById(id).getAttribute("data-origine");
@@ -12,8 +12,7 @@ function edit(id,id_fammille,id_classe) {
      document.getElementById("instrument-dimension").value=document.getElementById(id).getAttribute("data-dimension");
      document.getElementById("instrument-qte").value=document.getElementById(id).getAttribute("data-qte");
      document.getElementById("instrument-prix").value=document.getElementById(id).getAttribute("data-prix");
-    //  console.log(document.getElementById(id).getAttribute("data-fammille"));
-    //  let nom_fammille =document.getElementById(id).getAttribute("data-fammille");
+  
      
         document.getElementById('fammille'+id_fammille).selected=true;
         document.getElementById('classe'+id_classe).selected=true;
